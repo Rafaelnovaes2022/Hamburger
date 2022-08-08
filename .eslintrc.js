@@ -1,7 +1,7 @@
 module.exports = {
-  root: true,
+  root: false,
   env: {
-    node: true
+    node: false
   },
   extends: [
     'plugin:vue/vue3-essential',
@@ -10,6 +10,9 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint'
   },
+  ignorePatterns: [
+    "/src/**"
+  ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
