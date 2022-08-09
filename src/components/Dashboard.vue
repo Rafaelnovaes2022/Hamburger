@@ -18,7 +18,7 @@
                 <div>{{ burger.carne }}</div>
                 <div>
                     <ul>
-                        <li v-for='(opcional, index) in burger.opcionais' :key="index">
+                        <li v-for='(opcional, index) in burger.opcionais' :key='index'>
                             {{ opcional }}
                         </li>
                     </ul>
@@ -26,13 +26,12 @@
                     </div>
                 </div>
                 <div>
-                    <select name="status" class="status">
-                        <option value="">Selecione</option>
-                        <option v-for='s in status' :key='s.id' value='s.tipo'>
-                        {{ s.tipo }}
+                    <select name="status" class="status" @change="updateBurger($event, burger.id)">
+                        <option :value="s.tipo" v-for="s in status" :key="s.id" :selected="burger.status == s.tipo">
+                            {{ s.tipo }}
                         </option>
                     </select>
-                    <button class="delete-btn">Cancelar</button>
+                    <button class="delete-btn" @click='deleteBurger(burger.id)'>Cancelar</button>
 
                 </div>
             </div>
@@ -58,17 +57,43 @@ export default {
             const data = await req.json();
             this.burgers = data;
 
-            console.log(this.burgers);
+            console.log(this.burgers)
 
-            //Resgatar os status
+            // Resgatar os status
             this.getStatus();
-
         },
         async getStatus() {
             const req = await fetch('http://localhost:3000/status');
 
             const data = await req.json();
             this.status = data;
+        },
+        async deleteBurger(id) {
+
+            const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+                method: "DELETE"
+            });
+
+            const res = await req.json()
+
+            this.getPedidos()
+
+        },
+        async updateBurger(event, id) {
+
+            const option = event.target.value;
+
+            const dataJson = JSON.stringify({ status: option });
+
+            const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: dataJson
+            });
+
+            const res = await req.json()
+
+            console.log(res)
 
         }
     },

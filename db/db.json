@@ -88,16 +88,8 @@
         "Cebola roxa",
         "Pepino"
       ],
-      "status": "Solicitado",
+      "status": "Em produção",
       "id": 1
-    },
-    {
-      "nome": null,
-      "carne": null,
-      "pao": null,
-      "opcionais": [],
-      "status": "Solicitado",
-      "id": 2
     },
     {
       "nome": "carlos rafael ",
@@ -109,16 +101,8 @@
         "Cheddar",
         "Pepino"
       ],
-      "status": "Solicitado",
+      "status": "Em produção",
       "id": 3
-    },
-    {
-      "nome": "eliwelton",
-      "carne": "Picanha",
-      "pao": "3 Queijos",
-      "opcionais": [],
-      "status": "Solicitado",
-      "id": 4
     },
     {
       "nome": "eliwelton",
@@ -130,16 +114,8 @@
         "Cebola roxa",
         "Pepino"
       ],
-      "status": "Solicitado",
+      "status": "Finalizado",
       "id": 5
-    },
-    {
-      "nome": null,
-      "carne": null,
-      "pao": null,
-      "opcionais": [],
-      "status": "Solicitado",
-      "id": 6
     },
     {
       "nome": "ELIELSON",
